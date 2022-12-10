@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo_pokedex/ui/widgets/item_type_widget.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
   String name;
   String image;
+  List<String> types;
   ItemPokemonWidget({
     required this.name,
     required this.image,
+    required this.types,
   });
 
   @override
   Widget build(BuildContext context) {
+    print(types);
     return Container(
       decoration: BoxDecoration(
         color: Color(0xff4CCFB3),
@@ -32,6 +36,7 @@ class ItemPokemonWidget extends StatelessWidget {
               horizontal: 12,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
@@ -41,28 +46,14 @@ class ItemPokemonWidget extends StatelessWidget {
                     fontSize: 16.0,
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 6.0),
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 4,
-                    horizontal: 14,
-                  ),
-                  child: Text(
-                    "Grass",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.04),
-                            offset: const Offset(4, 4),
-                            blurRadius: 12.0)
-                      ]),
-                )
+                /*Column(
+                  children: types.map((e) => ItemTypeWidget()).toList(),
+                )*/
+                ...types
+                    .map((e) => ItemTypeWidget(
+                          text: e,
+                        ))
+                    .toList(),
               ],
             ),
           ),
