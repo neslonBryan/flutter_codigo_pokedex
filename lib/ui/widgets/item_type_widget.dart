@@ -7,7 +7,11 @@ class ItemTypeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 6.0),
+      margin: const EdgeInsets.only(
+        bottom: 4.0,
+        right: 12.0,
+        top: 4.0,
+      ),
       padding: const EdgeInsets.symmetric(
         vertical: 4,
         horizontal: 14,
